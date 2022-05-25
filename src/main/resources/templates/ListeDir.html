@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template">
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.0.0/css/bootstrap.min.css" />
+<head>
+<meta charset="utf-8">
+<title>Directorss</title>
+</head>
+<body>
+    <div layout:fragment="Mycontent">
+    <div class="container mt-5">
+    <div class="card">
+     <div class="card-header">
+     Directors
+     </div>
+     <div class="card-body"> 
+     <table class="table table-striped" style="text-align: center;">
+     <tr>
+     <th>ID</th><th>Name Director</th><th>First Director</th><th>Actions</th>
+     </tr> 
+     <tr th:each="c:${Directors}">
+     <td th:text="${c.idDir}"></td>
+     <td th:text="${c.nomDir}"></td>
+        <td th:text="${c.prenomDir}"></td>
+     <td><a class="btn btn-danger" onclick="return confirm('Etes-vous sur ?')" th:href="@{supprimerDirector(id=${c.idDir})}">remove</a> 
+    <a class="btn btn-success" th:href="@{modifierDirector(id=${c.idDir})}">Update</a>
+     </tr> 
+     </table>
+     
+     </div>
+    </div>
+    </div>
+    </div>
+    </body>
+</html>
